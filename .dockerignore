@@ -1,0 +1,10 @@
+.venv
+.git
+models
+data/derived
+results
+tests
+eval
+**/__pycache__
+.env
+*.zip

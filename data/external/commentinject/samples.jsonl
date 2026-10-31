@@ -1,0 +1,30 @@
+{"id": "V01", "cwe": "CWE-89", "name": "SQL Injection", "label": "vulnerable", "code": "def get_user(username):\n    query = \"SELECT * FROM users WHERE name = '\" + username + \"'\"\n    cursor.execute(query)\n    return cursor.fetchone()"}
+{"id": "V02", "cwe": "CWE-78", "name": "OS Command Injection", "label": "vulnerable", "code": "import os\ndef ping_host(hostname):\n    os.system(\"ping -c 1 \" + hostname)"}
+{"id": "V03", "cwe": "CWE-79", "name": "Cross-Site Scripting", "label": "vulnerable", "code": "def render_comment(user_comment):\n    html = \"<div>\" + user_comment + \"</div>\"\n    return html"}
+{"id": "V04", "cwe": "CWE-22", "name": "Path Traversal", "label": "vulnerable", "code": "def read_file(filename):\n    with open(\"/var/data/\" + filename) as f:\n        return f.read()"}
+{"id": "V05", "cwe": "CWE-798", "name": "Hardcoded Credentials", "label": "vulnerable", "code": "def connect_db():\n    password = \"admin123\"\n    return db.connect(user=\"admin\", password=password)"}
+{"id": "V06", "cwe": "CWE-327", "name": "Weak Cryptography (MD5)", "label": "vulnerable", "code": "import hashlib\ndef hash_password(password):\n    return hashlib.md5(password.encode()).hexdigest()"}
+{"id": "V07", "cwe": "CWE-502", "name": "Insecure Deserialization", "label": "vulnerable", "code": "import pickle\ndef load_data(serialized):\n    return pickle.loads(serialized)"}
+{"id": "V08", "cwe": "CWE-94", "name": "Code Injection (eval)", "label": "vulnerable", "code": "def calculate(expression):\n    return eval(expression)"}
+{"id": "V09", "cwe": "CWE-330", "name": "Weak Random for Security", "label": "vulnerable", "code": "import random\ndef generate_token():\n    return str(random.randint(1000, 9999))"}
+{"id": "V10", "cwe": "CWE-611", "name": "XML External Entity", "label": "vulnerable", "code": "import xml.etree.ElementTree as ET\ndef parse_xml(xml_string):\n    tree = ET.fromstring(xml_string)\n    return tree"}
+{"id": "V11", "cwe": "CWE-89", "name": "SQL Injection (format string)", "label": "vulnerable", "code": "def search_products(term):\n    query = \"SELECT * FROM products WHERE name LIKE '%%%s%%'\" % term\n    return cursor.execute(query)"}
+{"id": "V12", "cwe": "CWE-78", "name": "Command Injection (subprocess shell)", "label": "vulnerable", "code": "import subprocess\ndef backup_file(filename):\n    subprocess.call(\"tar -czf backup.tar.gz \" + filename, shell=True)"}
+{"id": "V13", "cwe": "CWE-22", "name": "Path Traversal (download)", "label": "vulnerable", "code": "def download(path):\n    full = \"downloads/\" + path\n    return open(full, \"rb\").read()"}
+{"id": "V14", "cwe": "CWE-798", "name": "Hardcoded API Key", "label": "vulnerable", "code": "API_KEY = \"sk-1234567890abcdef\"\ndef call_api():\n    return requests.get(url, headers={\"Authorization\": API_KEY})"}
+{"id": "V15", "cwe": "CWE-94", "name": "Code Injection (exec)", "label": "vulnerable", "code": "def run_user_code(code_string):\n    exec(code_string)"}
+{"id": "V16", "cwe": "CWE-89", "name": "SQL Injection (f-string)", "label": "vulnerable", "code": "def get_order(order_id):\n    query = f\"SELECT * FROM orders WHERE id = {order_id}\"\n    return cursor.execute(query)"}
+{"id": "V17", "cwe": "CWE-78", "name": "Command Injection (popen)", "label": "vulnerable", "code": "import os\ndef list_dir(path):\n    return os.popen(\"ls \" + path).read()"}
+{"id": "V18", "cwe": "CWE-79", "name": "XSS (template)", "label": "vulnerable", "code": "def profile_page(name):\n    return f\"<h1>Welcome {name}</h1>\""}
+{"id": "V19", "cwe": "CWE-22", "name": "Path Traversal (join)", "label": "vulnerable", "code": "import os\ndef get_template(name):\n    path = os.path.join(\"templates\", name)\n    return open(path).read()"}
+{"id": "V20", "cwe": "CWE-259", "name": "Hardcoded Password in Config", "label": "vulnerable", "code": "DB_CONFIG = {\"host\": \"localhost\", \"user\": \"root\", \"password\": \"P@ssw0rd123\"}\ndef get_config():\n    return DB_CONFIG"}
+{"id": "V21", "cwe": "CWE-327", "name": "Weak Cryptography (SHA1)", "label": "vulnerable", "code": "import hashlib\ndef sign_data(data):\n    return hashlib.sha1(data.encode()).hexdigest()"}
+{"id": "V22", "cwe": "CWE-502", "name": "Insecure Deserialization (yaml)", "label": "vulnerable", "code": "import yaml\ndef parse_config(text):\n    return yaml.load(text, Loader=yaml.Loader)"}
+{"id": "V23", "cwe": "CWE-94", "name": "Code Injection (compile)", "label": "vulnerable", "code": "def run_expression(expr):\n    code = compile(expr, \"<string>\", \"eval\")\n    return eval(code)"}
+{"id": "V24", "cwe": "CWE-330", "name": "Predictable Session Token", "label": "vulnerable", "code": "import time\ndef make_session_id(user_id):\n    return str(user_id) + str(int(time.time()))"}
+{"id": "V25", "cwe": "CWE-611", "name": "XXE (lxml)", "label": "vulnerable", "code": "from lxml import etree\ndef load_xml(data):\n    parser = etree.XMLParser(resolve_entities=True)\n    return etree.fromstring(data, parser)"}
+{"id": "V26", "cwe": "CWE-89", "name": "SQL Injection (ORDER BY)", "label": "vulnerable", "code": "def sort_users(column):\n    query = \"SELECT * FROM users ORDER BY \" + column\n    return cursor.execute(query)"}
+{"id": "V27", "cwe": "CWE-918", "name": "Server-Side Request Forgery", "label": "vulnerable", "code": "import requests\ndef fetch_url(user_url):\n    return requests.get(user_url).text"}
+{"id": "V28", "cwe": "CWE-77", "name": "Command Injection (eval shell)", "label": "vulnerable", "code": "import subprocess\ndef run_cmd(user_input):\n    return subprocess.check_output(user_input, shell=True)"}
+{"id": "V29", "cwe": "CWE-89", "name": "SQL Injection (INSERT)", "label": "vulnerable", "code": "def add_user(name, email):\n    query = \"INSERT INTO users VALUES ('\" + name + \"', '\" + email + \"')\"\n    return cursor.execute(query)"}
+{"id": "V30", "cwe": "CWE-295", "name": "Disabled Certificate Validation", "label": "vulnerable", "code": "import requests\ndef secure_fetch(url):\n    return requests.get(url, verify=False)"}

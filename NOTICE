@@ -1,0 +1,7 @@
+Third-party data in this repository
+
+data/external/commentinject/  CommentInject dataset, S. Chokshi, Zenodo, doi:10.5281/zenodo.23088528. CC BY 4.0.
+data/train.jsonl, val.jsonl, test.jsonl (rows with source "cpython_stdlib" or "cpython_headers")
+  Comments extracted from the CPython 3.14 standard library and C headers.
+  Copyright Python Software Foundation. Python Software Foundation License Version 2.
+PrimeVul is not redistributed. It is read from PRIMEVUL_PATH at build time and written only to data/derived/ (gitignored).

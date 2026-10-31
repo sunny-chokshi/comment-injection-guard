@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-31 03:51:58 UTC",
+  "host": "3f4f647a2c97",
+  "threads": 4,
+  "models": {
+    "qwen2.5-coder:7b": {
+      "calls": 1500,
+      "wall_s": 284.0
+    },
+    "deepseek-coder:6.7b": {
+      "calls": 1500,
+      "wall_s": 435.1
+    }
+  },
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "finished": "2026-10-31 04:05:34 UTC"
+}
