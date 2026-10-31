@@ -121,7 +121,9 @@ PRIMEVUL_PATH=/path/to/primevul_test_paired.jsonl python data/build_dataset.py
 
 ## Deploy
 
-Docker image: `docker build -t guard .` (trains at build time from committed data). `fly.toml` is ready for Fly.io; Render and Cloud Run take the same image.
+Live on Fly.io since Oct 31 2026: `https://comment-injection-guard.fly.dev` (one `shared-cpu-1x` machine, 512 MB, region `iad`, stops when idle). `/health` is open; `/v1/scan` needs an API key. Measured from a laptop in Massachusetts with the machine already warm, 20 requests: round trip p50 90 ms, p95 178 ms. Server-side guard time on that shared CPU was 4 to 11 ms per request, slower than the 0.5 ms measured on an M-series laptop. The first request after the machine has stopped also pays a cold start, which is not included above.
+
+Docker image: `docker build -t guard .` (trains at build time from committed data). CI builds it and sends a live request on every push. `fly.toml` is ready for Fly.io; Render and Cloud Run take the same image.
 
 Controls that are on by default:
 
